@@ -23,11 +23,16 @@ async function createFeeConfiguration(req, res) {
 async function computeFee(req, res) {
   const { ID, Amount, Currency, CurrencyCountry, Customer, PaymentEntity } = req.body;
   try {
-    const fee = await getTransactionFee(CurrencyCountry, PaymentEntity);
-
-    if (!fee) {
+    if (Currency !== "NGN") {
       return res.status(400).send({
         Error: `No fee configuration for ${Currency} transactions.`
+      });
+    }
+    
+    const fee = await getTransactionFee(CurrencyCountry, PaymentEntity);
+    if (!fee) {
+      return res.status(400).send({
+        Error: `No fee configuration for this transaction.`
       });
     }
 
