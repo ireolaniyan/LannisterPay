@@ -7,7 +7,7 @@ const db_url = (process.env.NODE_ENV === 'test') ? 'mongodb://127.0.0.1:27017/la
 
 mongoose.Promise = global.Promise;
 let dbConnection;
-let dbModels = {};
+let db = {};
 
 function initDb() {
 	mongoose.connect(db_url, {}).then((db) => {
@@ -23,6 +23,6 @@ function getDb() {
 	return dbConnection;
 }
 
-dbModels.fee = models.FeeModel;
+db.fee = models.FeeModel;
 
-module.exports = { initDb, getDb, dbModels };
+module.exports = { initDb, getDb, db };

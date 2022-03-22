@@ -14,7 +14,7 @@ initDb();
 const fee = require('./routes/fee.js');
 
 app.use(express.json());
-app.use(fee);
+app.use('/api/v1', fee);
 
 app.get('/', (req, res) => {
 	res.json({ "message": "Welcome to Lannister Pay" });
