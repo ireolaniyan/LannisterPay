@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const models = require('../app/models');
 
-const db_url = (process.env.NODE_ENV === 'test') ? 'mongodb://127.0.0.1:27017/lannister-pay-test' : 'mongodb://127.0.0.1:27017/lannister-pay';
+const db_url = process.env.DB_URL;
 
 mongoose.Promise = global.Promise;
 let dbConnection;

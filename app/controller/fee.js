@@ -36,7 +36,7 @@ async function computeFee(req, res) {
     if (fee.type === "FLAT") {
       AppliedFeeValue = Number.parseInt(fee.value);
     } else if (fee.type === "PERC") {
-      AppliedFeeValue = (Number.parseInt(fee.value) / 100) * Amount;
+      AppliedFeeValue = Math.ceil((Number.parseFloat(fee.value) / 100) * Amount);
     } else {
       fee.value = fee.value.split(":");
       const flat = Number.parseInt(fee.value[0]);
