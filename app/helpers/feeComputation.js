@@ -11,7 +11,7 @@ function queryBuilder(currencyCountry, paymentEntity) {
   }
 
   query.fee_entity = { $in: [paymentEntity.Type, "*"] };
-  
+
   if (paymentEntity.Type === "CREDIT_CARD" || paymentEntity.Type === "DEBIT_CARD") {
     query.entity_property = { $in: [paymentEntity.Brand, paymentEntity.Number, paymentEntity.SixID, "*"] };
   } else {
