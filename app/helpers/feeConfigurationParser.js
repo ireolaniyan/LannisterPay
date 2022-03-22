@@ -5,7 +5,7 @@ function parseFeeConfiguration(configuration) {
     let data = spec.replace('(', ' ');
     data = data.replace(')', '');
     data = data.split(' ');
-    
+
     return {
       fee_id: data[0],
       fee_currency: data[1],
