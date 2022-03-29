@@ -33,7 +33,7 @@ async function getTransactionFee(currencyCountry, paymentEntity) {
   const ruleScore = applicableRules.map(rule => {
     let score = 3;
 
-    if (rule.fee_entity === "*")  score--;
+    if (rule.fee_entity === "*") score--;
     if (rule.fee_locale === "*") score--;
     if (rule.entity_property === "*") score--;
 
